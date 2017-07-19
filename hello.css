@@ -1,0 +1,36 @@
+body {
+  font-family: "Lucida Console", lucida , monospace;
+}
+h1 {
+  font-size: 40px;
+  color: #00FFFF;
+}
+p {
+  color: white;
+}
+h2 {
+  color: #1E90FF;
+}
+h3, h4 {
+  font-size: 35px;
+  color: #800080;
+  ;
+}
+li{
+  font-size: 25px;
+  color: #663399;
+}
+img {
+  height: 150px;
+  width: 200px;
+  padding: 15px;
+  border: 10px dashed white;
+  margin: 10px;
+}
+h3{
+  display: inline-block;
+
+}
+.pictures {
+  display: inline-block;
+}
