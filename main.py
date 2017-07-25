@@ -1,8 +1,27 @@
+#!/usr/bin/env python
+#
+# Copyright 2007 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+import webapp2
+# import logging
+HOMEPAGE = """
 <html>
 <body background ="https://media.giphy.com/media/pruntGJyPxE52/giphy.gif">
   <head>
     <title>My First Webpage</title>
-    <link rel="stylesheet" href="hello.css"/>
+    <link rel="stylesheet" href="/resources/hello.css"/>
   <head>
   <body>
     <center>
@@ -10,7 +29,7 @@
     <h2>About me</h2>
     <p> I am from Brooklyn, New York. I am going to <a href="http://www.baruch.cuny.edu/">Baruch College</a>.I have a pet rabbit named Fufu.</p></center>
     <a href="html_2.html">
-      <img src="http://www.animatedimages.org/data/media/327/animated-rabbit-image-0422.gif">
+    <img src="http://www.animatedimages.org/data/media/327/animated-rabbit-image-0422.gif">
     </a>
     <center>
     <h3>HOBBIES
@@ -25,24 +44,13 @@
      </center>
    </div>
     </h3>
+    <center>
     <h4>Food That I Like
       <div class="pictures">
-      <center>
+
       <div class="pictures"><li>Sushi</li>
       <img src="https://media.tenor.com/images/3be04af037ef139044f7ff8dac40f92b/tenor.gif" id="Sushi"></div>
       <div class="pictures"><li>Chicken</li>
-      <img src="https://images-gmi-pmc.edge-generalmills.com/549e441a-eed1-4e39-8ad3-6ae60ab3ad7f.jpg" id="Chicken"></div>
-      <div class="pictures"><li>Spaghetti</li>
-      <img src="https://cdn.instructables.com/FY0/BMNB/IB226AMH/FY0BMNBIB226AMH.MEDIUM.jpg" id="Spaghetti"></div>
-     </center>
-   </div>
-    </h4>
-    <h4>Movies That I Like
-      <div class="pictures">
-      <center>
-      <div class="pictures"><li>Kingsman: The Secret Service</li>
-      <img src="https://media.tenor.com/images/3be04af037ef139044f7ff8dac40f92b/tenor.gif" id="Sushi"></div>
-      <div class="pictures"><li>Big Hero 6</li>
       <img src="https://images-gmi-pmc.edge-generalmills.com/549e441a-eed1-4e39-8ad3-6ae60ab3ad7f.jpg" id="Chicken"></div>
       <div class="pictures"><li>Spaghetti</li>
       <img src="https://cdn.instructables.com/FY0/BMNB/IB226AMH/FY0BMNBIB226AMH.MEDIUM.jpg" id="Spaghetti"></div>
@@ -53,3 +61,13 @@
 
   </body>
 </html>
+"""
+class MainHandler(webapp2.RequestHandler):
+    def get(self):
+        # logging.error('Printing hello message')
+        self.response.write(HOMEPAGE)
+
+
+app = webapp2.WSGIApplication([
+    ('/', MainHandler),
+], debug=True)

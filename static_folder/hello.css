@@ -33,4 +33,8 @@ h3{
 }
 .pictures {
   display: inline-block;
+  
+}
+#bunny {
+  left: calc(100% - 100px)
 }
